@@ -8,6 +8,8 @@ router
     console.log(device)
     res
     .send({"message": device})
+    .json({"message": device})
+    .status(200)
 })
 
 .get('/login', (req, res) => {
