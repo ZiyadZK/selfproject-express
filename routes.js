@@ -5,11 +5,11 @@ const router = express.Router();
 router
 .get('/', (req, res) => {
     const device = req.headers['user-agent'];
-    console.log(device)
+    console.log(device);
+
     res
-    .send({"message": device})
-    .json({"message": device})
     .status(200)
+    .json({"message": device})
 })
 
 .get('/login', (req, res) => {
