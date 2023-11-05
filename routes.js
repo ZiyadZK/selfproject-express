@@ -4,8 +4,10 @@ const router = express.Router();
 
 router
 .get('/', (req, res) => {
+    const device = req.headers['user-agent'];
+    console.log(device)
     res
-    .render('home/index')
+    .send({"message": device})
 })
 
 .get('/login', (req, res) => {
@@ -25,6 +27,23 @@ router
         .send({ data: "gagal login"})
         .send(404)
     }
+})
+
+.get('/user', (req, res) => {
+    const data = [
+        {
+            id: "1221312",
+            name: "abcbac",
+            desc: "lorem akjwalejawl wkea"
+        },
+        {
+            id: "1221312",
+            name: "abcbac",
+            desc: "lorem akjwalejawl wkea"
+        }
+    ];
+    res
+    .render('user/index', {data})
 })
 
 module.exports = router;
